@@ -1,0 +1,172 @@
+  :root{
+  --max: 1100px;
+  --bg: #f9f7f2;          
+  --text: #2b2b2b;
+  --muted: #6b6b6b;
+  --red: #d32f2f;
+  --green: #388e3c;
+  --gold: #fbc02d;
+  --card: #ffffff;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap');
+body {
+  font-family: 'Rubik Gemstones', cursive, "Segoe UI", system-ui;
+  line-height: 1.6;
+  background: var(--bg) url('img/fons-postal.png') center/cover no-repeat;
+  color: var(--text);
+}
+
+.site-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:2rem 1rem;
+  background: rgba(255,255,255,0.85);
+  border-bottom: 4px solid var(--gold);
+  border-radius:0 0 16px 16px;
+}
+.brand h1{
+  font-size: 2.8rem;
+  color: var(--green);
+  letter-spacing: .05em;
+}
+.brand .mark{ color: var(--red); text-shadow: 0 0 10px var(--gold); }
+.tagline{ color: var(--muted); margin-top:.4rem; font-style: italic; }
+
+.main-nav ul{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.7rem;
+  margin-top:1rem;
+}
+.main-nav a{
+  text-decoration:none;
+  padding:.5rem 1rem;
+  border-radius:999px;
+  background: var(--red);
+  color:white;
+  font-weight:600;
+  transition: .3s ease;
+}
+.main-nav a:hover{
+  background: var(--green);
+  transform: scale(1.05);
+}
+
+.layout{
+  max-width: var(--max);
+  margin:2.5rem auto;
+  display:grid;
+  grid-template-columns: 1fr 280px;
+  gap:2.5rem;
+  padding:0 1rem;
+}
+@media(max-width:900px){ .layout{ grid-template-columns:1fr; } }
+
+.content section{
+  background: rgba(255,255,255,0.95);
+  border-radius: var(--radius);
+  padding:1.5rem;
+  box-shadow: var(--shadow);
+  border: 2px dashed var(--gold);
+  position: relative;
+}
+
+.content section::before{
+  content:"";
+  position:absolute;
+  top:-10px; right:-10px;
+  width:40px; height:40px;
+  background: radial-gradient(circle at 30% 30%, var(--red), var(--gold));
+  border-radius:50%;
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+
+.content h2{ 
+  color: var(--red); margin-bottom:.6rem; font-family:"Courier New", monospace; 
+}
+.content h3{ 
+  color: var(--green); margin-top:.5rem; 
+}
+
+.mapa{
+  width:100%;
+  height:240px;
+  border-radius: var(--radius);
+  background: url('img/fons-neu.png') center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color: white;
+  font-weight:bold;
+  text-shadow: 0 0 6px #000;
+  border: 3px solid var(--gold);
+  transition: transform .2s ease;
+}
+.mapa:hover{ transform: translateY(-3px); cursor:pointer; }
+
+.sidebar{
+  background: rgba(255,255,255,0.95);
+  border-radius: var(--radius);
+  padding:1rem 1.1rem;
+  border:2px solid var(--green);
+  box-shadow: var(--shadow);
+}
+.sidebar h2{ 
+  color: var(--red); margin-bottom:.5rem; 
+}
+.sidebar ul{ 
+  list-style: disc; padding-left:1.2rem; color: var(--muted); 
+}
+
+
+table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top:.8rem;
+}
+thead th{
+  background: var(--green);
+  color:white;
+  padding:.6rem;
+}
+tbody td{ padding:.5rem; border-bottom:1px solid #eee; }
+
+blockquote{
+  border-left:4px solid var(--gold);
+  background: rgba(255,251,220,0.7);
+  padding:.8rem 1rem;
+  border-radius: var(--radius);
+  margin:.8rem 0;
+}
+
+details{
+  background: rgba(255,255,255,0.9);
+  padding:.9rem 1rem;
+  border-radius: var(--radius);
+  border:2px solid var(--red);
+}
+details + details{ margin-top:.8rem; }
+
+.site-footer{
+  text-align:center;
+  padding:1.5rem;
+  color: var(--muted);
+  font-size:.9rem;
+}
+
+:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+#taula-risc, #mapa{ cursor:pointer; }
+
+@media(max-width:560px){
+  .brand h1{ font-size:2rem; }
+  .main-nav ul{ gap:.4rem; }
+  .layout{ gap:1rem; }
+  .mapa{ height:180px; }
+}
